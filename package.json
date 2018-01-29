@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/EnigmaSn/webpack-lessons.git",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
 }
