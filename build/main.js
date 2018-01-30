@@ -92,7 +92,9 @@ document.body.appendChild(menu);
   });
   menu.innerHTML = listItems;
   return menu;
+  
 });;
+
 
 /***/ })
 /******/ ]);
