@@ -65,36 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__menu__ = __webpack_require__(1);
-
-var menu = Object(__WEBPACK_IMPORTED_MODULE_0__menu__["a" /* default */])([
-  'Главная',
-  'Обо мне',
-  'Портфолио'],
-  'menu');
-document.body.appendChild(menu);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = (function (array, className) {
-  var menu = document.createElement("ul");
-  menu.className = className;
-  var listItems = "";
-  array.forEach(function(item) {
-    listItems += "<li>" + item + "</li>";
-  });
-  menu.innerHTML = listItems;
-  return menu;
-
-});;
-
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\Users\\aponomareva\\Documents\\webpack-lessons\\source\\index.js'");
 
 /***/ })
 /******/ ]);
