@@ -6,14 +6,24 @@ const PATH = {
   build: path.join(__dirname, 'build')
 };
 module.exports = {
-  entry: PATH.source + '/index.js',
+  entry: {
+    'index': PATH.source + '/index.js',
+    'blog': PATH.source + '/blog.js',
+},
   output: {
     path: PATH.build,
     filename: '[name].js'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: PATH.source + '/index.pug'
+      filename: 'index.html',
+      chunks: ['index'],
+      template: PATH.source + 'pages/index/index.pug'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'blog.html',
+      chunks: ['blog'],
+      template: PATH.source + 'pages/blog/blog.pug'
     })
   ],
   module: {
