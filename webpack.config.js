@@ -38,6 +38,9 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    stats: 'errors-only' // теперь в кончоль выводятся только ошибки
   }
 };
 
