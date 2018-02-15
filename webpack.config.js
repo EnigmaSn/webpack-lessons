@@ -7,16 +7,38 @@ const PATHS = {
 };
 
 module.exports = {
-  entry: PATHS.source + '/index.js', //точка входа приложения (не используется другими модулями)
+  //точка входа приложения (не используется другими модулями)
+  entry: {
+    'index': PATHS.source + '/pages/index/index.js',
+    'blog': PATHS.source + '/pages/blog/blog.js'
+  },
   output: { // результат работы webpack
     path: PATHS.build,
       filename: '[name].js' // автоматически подставляются имена точек входа
   },
   plugins: [
     new HtmlWebpackPlugin({ // создает html файл с заданным title
-      title: 'Webpack app'
+      filename: 'index.html', // выходной файл
+      chunks: ['index'],
+      template: PATHS.source + '/pages/index/index.pug'
+    }),
+    new HtmlWebpackPlugin({ // создает html файл с заданным title
+      filename: 'blog.html', // выходной файл
+      chunks: ['blog'],
+      template: PATHS.source + '/pages/blog/blog.pug'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.pug$/, // работа идет только с файлами с расширением pug
+        loader: 'pug-loader',
+        options: {
+          pretty: true // расстановка отступов и переносов строк
+        }
+      }
+    ]
+  }
 };
 
 
