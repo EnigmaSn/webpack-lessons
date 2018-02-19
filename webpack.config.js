@@ -6,7 +6,8 @@ const PATHS = {
   build: path.join(__dirname, 'build')
 };
 
-module.exports = {
+// общий код для пролдакшена и разработки
+const common = {
   //точка входа приложения (не используется другими модулями)
   entry: {
     'index': PATHS.source + '/pages/index/index.js',
@@ -38,10 +39,28 @@ module.exports = {
         }
       }
     ]
-  },
-  devServer: {
-    stats: 'errors-only' // теперь в кончоль выводятся только ошибки
   }
 };
 
+// код для разработки
+const developmentConfig = {
+  devServer: {
+    stats: 'errors-only', // теперь в кончоль выводятся только ошибки
+    port: 9000
+  }
+};
+
+module.exports = function(env) {
+  if (env === 'production') {
+    return common;
+  }
+  if (env === 'development') {
+    // Функция Object.assign получает список объектов и копирует в первый объект свойства из остальных.
+    return Object.assign(
+      {}, // копирование в пустой объект свойств их объектов common и developmentConfig
+      common,
+      developmentConfig
+    )
+  }
+};
 
