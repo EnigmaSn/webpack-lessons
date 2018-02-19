@@ -6,6 +6,7 @@ const merge = require('webpack-merge');
 const pug = require('./webpack/pug'); // можно не указывать расширение
 const devserver = require('./webpack/devserver'); // можно не указывать расширение
 const sass = require('./webpack/sass');
+const css = require('./webpack/css');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
@@ -51,7 +52,8 @@ module.exports = function(env) {
     return merge ([
       common,
       devserver(), // круглые скобки, чтобы функция модуля вернула необходимый объект
-      sass()
+      sass(),
+      css()
     ])
   }
 };
