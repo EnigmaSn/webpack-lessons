@@ -340,7 +340,9 @@ template {
   display: none;
 }
 ul {
-  border: 1px solid #777; }
+  border: 1px solid #777;
+  background-image: url(../images/menu.svg);
+  background-repeat: no-repeat; }
   ul li {
     display: inline-block;
     padding: 5px 10px;

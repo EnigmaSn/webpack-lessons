@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add extract-text-webpack-plugin -D
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add file-loader -D
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\wbin;C:\Program Files\Microsoft Service Fabric\bin\Fabric\Fabric.Code;C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\GitExtensions\;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin;C:\Users\aponomareva\AppData\Roaming\npm;C:\Users\aponomareva\AppData\Local\Yarn\bin
@@ -28,6 +28,7 @@ npm manifest:
     },
     "devDependencies": {
       "css-loader": "^0.28.9",
+      "extract-text-webpack-plugin": "^3.0.2",
       "html-webpack-plugin": "^2.30.1",
       "node-sass": "^4.7.2",
       "node-static": "^0.7.10",
@@ -40,6 +41,7 @@ npm manifest:
       "webpack-merge": "^4.1.1"
     },
     "dependencies": {
+      "jquery": "^3.3.1",
       "normalize.css": "^8.0.0"
     }
   }
@@ -108,7 +110,7 @@ Lockfile:
       co "^4.6.0"
       json-stable-stringify "^1.0.1"
   
-  ajv@^5.1.0:
+  ajv@^5.0.0, ajv@^5.1.0:
     version "5.5.2"
     resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
     dependencies:
@@ -295,7 +297,7 @@ Lockfile:
     version "1.5.2"
     resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   
-  async@^2.1.2, async@^2.1.5:
+  async@^2.1.2, async@^2.1.5, async@^2.4.1:
     version "2.6.0"
     resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
     dependencies:
@@ -1591,6 +1593,15 @@ Lockfile:
       snapdragon "^0.8.1"
       to-regex "^3.0.1"
   
+  extract-text-webpack-plugin@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.2.tgz#5f043eaa02f9750a9258b78c0a6e0dc1408fb2f7"
+    dependencies:
+      async "^2.4.1"
+      loader-utils "^1.1.0"
+      schema-utils "^0.3.0"
+      webpack-sources "^1.0.1"
+  
   extsprintf@1.3.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -2494,6 +2505,10 @@ Lockfile:
   isstream@~0.1.2:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+  
+  jquery@^3.3.1:
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   
   js-base64@^2.1.8, js-base64@^2.1.9:
     version "2.4.3"
@@ -4242,6 +4257,12 @@ Lockfile:
   sax@~1.2.1:
     version "1.2.4"
     resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+  
+  schema-utils@^0.3.0:
+    version "0.3.0"
+    resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.3.0.tgz#f5877222ce3e931edae039f17eb3716e7137f8cf"
+    dependencies:
+      ajv "^5.0.0"
   
   schema-utils@^0.4.3:
     version "0.4.5"
