@@ -40,6 +40,10 @@ const common = merge([
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'common' // автоматически выносится в общий код для всех страниц
+      }),
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
       })
     ]
   },
