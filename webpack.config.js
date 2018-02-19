@@ -7,6 +7,7 @@ const pug = require('./webpack/pug'); // можно не указывать ра
 const devserver = require('./webpack/devserver'); // можно не указывать расширение
 const sass = require('./webpack/sass');
 const css = require('./webpack/css');
+const extractCSS  = require('./webpack/css.extract');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
@@ -23,7 +24,7 @@ const common = merge([
     },
     output: { // результат работы webpack
       path: PATHS.build,
-      filename: '[name].js' // автоматически подставляются имена точек входа
+      filename: 'js/[name].js' // автоматически подставляются имена точек входа
     },
     plugins: [
       new HtmlWebpackPlugin({ // создает html файл с заданным title
@@ -43,7 +44,10 @@ const common = merge([
 
 module.exports = function(env) {
   if (env === 'production') {
-    return common;
+    return merge([
+      common,
+      extractCSS()
+    ])
   }
   if (env === 'development') {
     // Функция Object.assign получает список объектов и копирует в первый объект свойства из остальных. [удалено]
