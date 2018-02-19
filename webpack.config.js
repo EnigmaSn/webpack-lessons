@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const pug = require('./webpack/pug'); // можно не указывать расширение
 const devserver = require('./webpack/devserver'); // можно не указывать расширение
+const sass = require('./webpack/sass');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
@@ -49,7 +50,8 @@ module.exports = function(env) {
     // в webpack-merge передается массив объектов, который нужно склеить
     return merge ([
       common,
-      devserver() // круглые скобки, чтобы функция модуля вернула необходимый объект
+      devserver(), // круглые скобки, чтобы функция модуля вернула необходимый объект
+      sass()
     ])
   }
 };
