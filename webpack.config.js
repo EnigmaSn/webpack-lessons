@@ -1,4 +1,5 @@
 const path = require('path'); // для единообразного пути к файлам на разных платформах
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // merge собирает модули в один конфиг
@@ -29,13 +30,16 @@ const common = merge([
     plugins: [
       new HtmlWebpackPlugin({ // создает html файл с заданным title
         filename: 'index.html', // выходной файл
-        chunks: ['index'],
+        chunks: ['index', 'common'],
         template: PATHS.source + '/pages/index/index.pug'
       }),
       new HtmlWebpackPlugin({ // создает html файл с заданным title
         filename: 'blog.html', // выходной файл
-        chunks: ['blog'],
+        chunks: ['blog', 'common'],
         template: PATHS.source + '/pages/blog/blog.pug'
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'common' // автоматически выносится в общий код для всех страниц
       })
     ]
   },
