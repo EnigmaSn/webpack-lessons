@@ -11,6 +11,7 @@ const css = require('./webpack/css');
 const extractCSS  = require('./webpack/css.extract');
 const uglifyJS = require('./webpack/js.uglify');
 const images = require('./webpack/images');
+const optimizeCSS = require('./webpack/css.optimize');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
@@ -58,6 +59,7 @@ module.exports = function(env) {
     return merge([
       common,
       extractCSS(),
+      optimizeCSS(),
       uglifyJS()
     ])
   }
