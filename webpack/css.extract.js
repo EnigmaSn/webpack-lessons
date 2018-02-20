@@ -12,7 +12,20 @@ module.exports = function(paths) {
           use: ExtractTextPlugin.extract({
             publicPath: '../', // чтобы пути к изображениеям в css были правильными
             fallback: 'style-loader',
-            use: ['css-loader','sass-loader']
+            use: [
+              // 'css-loader',
+              // 'sass-loader'
+
+              {
+                loader: 'css-loader',
+                options: {
+                  minimize: true
+                }
+              },
+              {
+                loader: 'sass-loader'
+              }
+            ]
           })
         },
         {
@@ -20,7 +33,14 @@ module.exports = function(paths) {
           include: paths,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: ['css-loader']
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  minimize: true
+                }
+              }
+            ]
           })
         }
       ]

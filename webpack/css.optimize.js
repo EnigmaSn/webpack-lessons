@@ -1,3 +1,5 @@
+// не задействован
+
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 

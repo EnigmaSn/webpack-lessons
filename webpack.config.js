@@ -59,7 +59,6 @@ module.exports = function(env) {
     return merge([
       common,
       extractCSS(),
-      optimizeCSS(),
       uglifyJS()
     ])
   }
